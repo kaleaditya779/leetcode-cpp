@@ -6,9 +6,9 @@ public:
         sort(students.begin(), students.end());
         sort(seats.begin(), seats.end());
         // unordered_map<int, int> studSeat;
-        vector<vector<int>> studSeat(students.size());
+        vector<vector<int>> studSeat;
         for (int i=0; i<students.size(); i++){
-            studSeat[i]={students[i], seats[i]};
+            studSeat.push_back({students[i], seats[i]});
         }
 
         for (auto i:studSeat){
