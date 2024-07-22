@@ -1,8 +1,8 @@
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        // sort(nums1.begin(), nums1.end());
-        // sort(nums2.begin(), nums2.end());
+        sort(nums1.begin(), nums1.begin()+m);
+        sort(nums2.begin(), nums2.end());
         // int total = m+n;
         vector<int> mergerBuddy;
         int m1=0;
@@ -20,19 +20,18 @@ public:
                 m1++;
             }
         }
-        while (m1+m2 < m+n){
-            if (m1 == m){
-                mergerBuddy.push_back(nums2[m2]);
-                m2++;
-            } else if (m2 == n){
-                mergerBuddy.push_back(nums1[m1]);
-                m1++;
-            }
+        while (m1<m){
+            mergerBuddy.push_back(nums1[m1]);
+            m1++;
+        }
+        while (m2<n){
+            mergerBuddy.push_back(nums2[m2]);
+            m2++;
         }
         // nums1.clear();
-        for (auto i:mergerBuddy){
-            cout<<i<<" ";
-        }
+        // for (auto i:mergerBuddy){
+        //     cout<<i<<" ";
+        // }
         nums1 = mergerBuddy;
     }
 };
