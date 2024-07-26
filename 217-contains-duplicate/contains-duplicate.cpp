@@ -25,12 +25,23 @@ public:
         */
 
         // Using set to store each encountering element, if already exists return true:
+        /*
         unordered_set<int> theSet;
         for (int i=0; i<nums.size(); i++){
             if (theSet.count(nums[i]) == 1) return true;
             else theSet.insert(nums[i]); 
         }
         return false;
+        */
+
+        unordered_map <int, int> mpp;
+        for (int i = 0; i < nums.size(); i ++){
+            mpp[nums[i]] ++;
+            if (mpp[nums[i]] > 1){
+                return true;
+            }
         
+        }
+        return false;
     }
 };
