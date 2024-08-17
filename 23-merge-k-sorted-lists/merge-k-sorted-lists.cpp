@@ -22,21 +22,22 @@ public:
             }
         }
         sort(comp.begin(), comp.end());
-        for (int i:comp) cout<<endl<<i;
+        // for (int i:comp) cout<<endl<<i;
         ListNode* head = new ListNode();
-        ListNode* act_head = new ListNode();
-        act_head->val= -11;
-        act_head->next = head;
+        ListNode* tail = new ListNode();
+        // if (head==nullptr) cout<<"Yep";
         for (int i=0; i<comp.size(); i++){
             ListNode* temp = new ListNode();
             temp->val = comp[i];
-            if (head==nullptr) {
-                head=temp;
-                continue;
+            if (head->next==nullptr) {
+                head->next=temp;
+                tail=temp;
+            } else {
+                tail->next = temp;
+                tail=tail->next;
             }
-            head->next=temp;
-            head=head->next;
+            
         }
-        return act_head->next->next;
+        return head->next;
     }
 };
